@@ -7,6 +7,18 @@ const mongoose = require('mongoose');
 
 app.use(express.json());
 app.use(morgan('tiny'));
+
+const productSchema = new mongoose.Schema({
+    name: String,
+    image: String,
+    countInStock: {
+        type: Number,
+        required: true
+    }
+})
+
+const Product = mongoose.model('Product', productSchema);
+
 mongoose.connect(process.env.MONGO_URI)
     .then(()=>{
         console.log('Database Connected ... ')
@@ -17,19 +29,31 @@ mongoose.connect(process.env.MONGO_URI)
 
 const api = process.env.API_URL
 
-app.get(`${api}/products`, (req, res) => {
-    const product = {
-        id: 1,
-        name: 'Android 14',
-        image: 'some_url'
-    }
+app.get(`${api}/products`, async (req, res) => {
+    const product = await Product.find()
+    
+    if (!product) {
+        res.status(500).json({success: false})
+    } 
+
     res.send(product);
 })
 
 app.post(`${api}/products`, (req, res) => {
-    const newProduct = req.body;
-    console.log(newProduct);
-    res.send(newProduct);
+    const newProduct = new Product({
+        name: req.body.name,
+        image: req.body.image,
+        countInStock: req.body.countInStock
+    });
+
+    newProduct.save().then((createdProduct => {
+        res.status(201).json(createdProduct);
+    })).catch((err)=>{
+        res.status(500).json({
+            error: err,
+            success: false
+        })
+    })
 })
 
 app.listen(3000, () => {
