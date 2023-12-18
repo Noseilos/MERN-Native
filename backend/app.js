@@ -2,10 +2,18 @@ const express = require('express');
 require('dotenv/config');
 const app = express();
 const morgan = require('morgan');
+const mongoose = require('mongoose');
 
 
 app.use(express.json());
 app.use(morgan('tiny'));
+mongoose.connect(process.env.MONGO_URI)
+    .then(()=>{
+        console.log('Database Connected ... ')
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
 
 const api = process.env.API_URL
 
