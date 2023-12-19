@@ -3,6 +3,13 @@ require('dotenv/config');
 const app = express();
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const cors = require('cors');
+
+app.use(cors());
+app.options('*', cors());
+
+
+// Route Imports
 const productRoutes = require('./routes/productRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
 const orderRoutes = require('./routes/orderRoutes');
