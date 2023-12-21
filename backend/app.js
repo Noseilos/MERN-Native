@@ -23,7 +23,7 @@ const api = process.env.API_URL
 
 // Routes
 app.use(`${api}/products`, productRoutes);
-app.use(`${api}/cateogries`, categoryRoutes);
+app.use(`${api}/categories`, categoryRoutes);
 app.use(`${api}/users`, userRoutes);
 app.use(`${api}/orders`, orderRoutes);
 
