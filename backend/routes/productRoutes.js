@@ -4,7 +4,7 @@ const { Product } = require('../models/Product');
 const { Category } = require('../models/Category');
 
 router.get(`/`, async (req, res) => {
-    const products = await Product.find()
+    const products = await Product.find().populate('category');
     
     if (!products) {
         res.status(500).json({success: false})
@@ -43,7 +43,7 @@ router.post(`/`, async (req, res) => {
 })
 
 router.get(`/:id`, async (req, res) => {
-    const product = await Product.findById(req.params.id);
+    const product = await Product.findById(req.params.id).populate('category');
 
     if (!product) {
         res.status(500).json({success: false, message: 'Product not found!'});
