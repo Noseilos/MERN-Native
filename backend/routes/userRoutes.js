@@ -4,13 +4,24 @@ const bcrypt = require('bcryptjs');
 const { User } = require('../models/User');
 
 router.get(`/`, async (req, res) => {
-    const users = await User.find();
+    const users = await User.find().select('-password');
 
     if (!users) {
         res.status(500).json({success: false})
     }
 
     res.send(users);
+})
+
+router.get(`/:id`, async (req, res) => {
+    const user = await User.findById(req.params.id).select('-password');
+
+    if (!user) {
+        res.status(500).json({success: false, message: 'User not found!'});
+    }
+
+    res.send(user);
+
 })
 
 router.post(`/`, async (req, res) => {
