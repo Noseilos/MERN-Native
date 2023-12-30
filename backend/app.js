@@ -5,10 +5,12 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const authJwt = require('./helpers/jwt');
+const errorHandler = require('./helpers/errorHandler')
 
 app.use(cors());
 app.options('*', cors());
 app.use(authJwt());
+app.use(errorHandler)
 
 // Route Imports
 const productRoutes = require('./routes/productRoutes');
