@@ -4,10 +4,11 @@ const app = express();
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const authJwt = require('./helpers/jwt');
 
 app.use(cors());
 app.options('*', cors());
-
+app.use(authJwt());
 
 // Route Imports
 const productRoutes = require('./routes/productRoutes');
