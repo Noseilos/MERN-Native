@@ -77,4 +77,29 @@ router.put(`/:id`, async (req, res) => {
     res.send(order);
 });
 
+router.delete('/:id', (req, res) => {
+    Order.findByIdAndDelete(req.params.id).then(async order => {
+        if (order) {
+
+            let orderedItemsDeleted = false;
+
+            for (const orderItemId of order.orderItems){
+                if (orderItemId) {
+                    await OrderItem.findByIdAndDelete(orderItemId)
+                    orderedItemsDeleted = true;
+                } else {
+                    return res.status(404).json({success: false, message: 'Order Items not found'})
+                }
+            }
+            
+            return res.status(200).json({success: true, message: 'Order deleted!'})
+            
+        } else {
+            return res.status(404).json({success: false, message: 'Order not found'})
+        }
+    }).catch(err => {
+        return res.status(400).json({success: false, error: err.message})
+    });
+});
+
 module.exports = router;
