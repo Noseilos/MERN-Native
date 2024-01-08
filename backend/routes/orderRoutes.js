@@ -38,6 +38,16 @@ router.post(`/`, async (req, res) => {
     }))
     const orderItemIdsResolved = await orderItemsIds;
 
+    const totalPrices = await Promise.all(orderItemIdsResolved.map(async orderItemId => {
+        const orderItem = await OrderItem.findById(orderItemId).populate('product', 'price');
+        const total = orderItem.product.price * orderItem.quantity
+        return total; 
+    }))
+
+    console.log(totalPrices)
+
+    const totalSum = totalPrices.reduce((acc, price) => acc + price, 0);
+
     let order = new Order({
         orderItems: orderItemIdsResolved,
         shippingAddress1: req.body.shippingAddress1,
@@ -47,7 +57,7 @@ router.post(`/`, async (req, res) => {
         country: req.body.country,
         phone: req.body.phone,
         status: req.body.status,
-        totalPrice: req.body.totalPrice,
+        totalPrice: totalSum,
         user: req.body.user,
     })
 
@@ -93,7 +103,7 @@ router.delete('/:id', (req, res) => {
             }
             
             return res.status(200).json({success: true, message: 'Order deleted!'})
-            
+
         } else {
             return res.status(404).json({success: false, message: 'Order not found'})
         }
