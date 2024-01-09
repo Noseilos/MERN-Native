@@ -112,4 +112,35 @@ router.delete('/:id', (req, res) => {
     });
 });
 
+router.get(`/get/totalsales`, async (req, res) => {
+
+    try {
+        const totalSales = await Order.aggregate([
+            { $group: { _id: null, totalsales: { $sum: '$totalPrice' } } }
+        ]);
+
+        if (totalSales.length === 0) {
+            return res.status(400).send('Total sales cannot be generated');
+        }
+
+        res.send({ totalsales: totalSales[0].totalsales });
+    } catch (error) {
+        console.error('MongoDB Aggregation Error:', error);
+        res.status(500).send('Internal Server Error');
+    }
+    
+});
+
+router.get(`/get/count`, async (req, res) => {
+    const orderCount = await Order.countDocuments();
+    
+    if (!orderCount) {
+        res.status(500).json({success: false})
+    } 
+
+    res.send({
+        orderCount: orderCount
+    });
+});
+
 module.exports = router;
