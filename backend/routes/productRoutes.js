@@ -57,7 +57,7 @@ router.post(`/`, uploadOptions.single('image'),async (req, res) => {
         return res.status(400).send(`Image Required`);
     }
     const fileName = req.file.filename;
-    const baseUrl = `${req.protocol}://${req.get('host')}/public/upload/`
+    const baseUrl = `${req.protocol}://${req.get('host')}/public/uploads/`
 
     const product = new Product({
         name: req.body.name,
@@ -114,7 +114,7 @@ router.put(`/:id`, uploadOptions.single('image'), async (req, res) => {
 
     if (file) {
         const fileName = req.file.filename;
-        const baseUrl = `${req.protocol}://${req.get('host')}/public/upload/`;
+        const baseUrl = `${req.protocol}://${req.get('host')}/public/uploads/`;
         imagePath = `${baseUrl}${fileName}`;
     } else {
         imagePath = product.image;
@@ -190,18 +190,15 @@ router.put(`/gallery-images/:id`, uploadOptions.array('images', 10), async (req,
         return res.status(400).send(`Invalid Product Id`);
     }
 
-    const files = req.files
+    const files = req.files;
     let imagePaths = [];
-    const baseUrl = `${req.protocol}://${req.get('host')}/public/upload/`;
+    const baseUrl = `${req.protocol}://${req.get('host')}/public/uploads/`;
 
     if (files) {
         files.map(file => {
-            imagePaths.push(`${baseUrl}${file.fileName}`);
+            imagePaths.push(`${baseUrl}${file.filename}`);
         })
-    } else {
-        
     }
-
 
     const product = await Product.findByIdAndUpdate(
         req.params.id,
@@ -214,11 +211,10 @@ router.put(`/gallery-images/:id`, uploadOptions.array('images', 10), async (req,
 
     if (!product) {
         res.status(500).json({success: false, message: 'Product not found!'});
-    }
+    } 
+        
 
     res.send(product);
-
-    
 })
 
 module.exports = router;
