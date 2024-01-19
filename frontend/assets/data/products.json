@@ -1,0 +1,163 @@
+[
+    {
+        "_id": "6588ae52fe8d52385f921f6a",
+        "name": "5lbs dumbbell",
+        "description": "5lbs dumbbell",
+        "longDescription": "5lbs dumbbell",
+        "image": "",
+        "images": [
+            "5lbs_dumbbell_url"
+        ],
+        "brand": "NTech",
+        "price": 1000,
+        "category": {
+            "_id": "65858606e27f552d6269722e",
+            "name": "dumbbells",
+            "icon": "dumbbell-icon",
+            "color": "black",
+            "__v": 0
+        },
+        "countInStock": 20,
+        "rating": 4,
+        "numReviews": 0,
+        "isFeatured": true,
+        "dateCreated": "2023-12-24T22:18:58.562Z",
+        "__v": 0,
+        "id": "6588ae52fe8d52385f921f6a"
+    },
+    {
+        "_id": "6588af6cfe8d52385f921f6f",
+        "name": "10lbs dumbbell pairs",
+        "description": "10lbs dumbbell pair",
+        "longDescription": "10lbs dumbbell pair",
+        "image": "",
+        "images": [
+            "10lbs_dumbbell_url",
+            "10lbs_dumbbell_url2"
+        ],
+        "brand": "NTech",
+        "price": 2000,
+        "category": {
+            "_id": "65858606e27f552d6269722e",
+            "name": "dumbbells",
+            "icon": "dumbbell-icon",
+            "color": "black",
+            "__v": 0
+        },
+        "countInStock": 22,
+        "rating": 4,
+        "numReviews": 1,
+        "isFeatured": true,
+        "dateCreated": "2023-12-24T22:23:40.826Z",
+        "__v": 0,
+        "id": "6588af6cfe8d52385f921f6f"
+    },
+    {
+        "_id": "65899e8011b1c21154bb614e",
+        "name": "pec deck machine",
+        "description": "pec deck machine",
+        "longDescription": "pec deck machine",
+        "image": "",
+        "images": [
+            "pec_deck_machine_url",
+            "pec_deck_machine_url2"
+        ],
+        "brand": "NTech",
+        "price": 1000,
+        "category": {
+            "_id": "65899e0f11b1c21154bb614a",
+            "name": "machines",
+            "icon": "machines-icon",
+            "color": "black",
+            "__v": 0
+        },
+        "countInStock": 20,
+        "rating": 4,
+        "numReviews": 0,
+        "isFeatured": false,
+        "dateCreated": "2023-12-25T15:23:44.871Z",
+        "__v": 0,
+        "id": "65899e8011b1c21154bb614e"
+    },
+    {
+        "_id": "6590ea22a9265df3edc590ce",
+        "name": "cable machine",
+        "description": "cable machine",
+        "longDescription": "cable machine",
+        "image": "",
+        "images": [
+            "cable_machine_url",
+            "cable_machine_url2"
+        ],
+        "brand": "NTech",
+        "price": 1000,
+        "category": {
+            "_id": "65899e0f11b1c21154bb614a",
+            "name": "machines",
+            "icon": "machines-icon",
+            "color": "black",
+            "__v": 0
+        },
+        "countInStock": 20,
+        "rating": 4,
+        "numReviews": 0,
+        "isFeatured": false,
+        "dateCreated": "2023-12-31T04:12:18.305Z",
+        "__v": 0,
+        "id": "6590ea22a9265df3edc590ce"
+    },
+    {
+        "_id": "6590ebb6b3d406038956ede2",
+        "name": "T-bar machine",
+        "description": "T-bar machine",
+        "longDescription": "T-bar machine",
+        "image": "",
+        "images": [
+            "t-bar_machine_url",
+            "t-bar_machine_url2"
+        ],
+        "brand": "NTech",
+        "price": 1000,
+        "category": {
+            "_id": "65899e0f11b1c21154bb614a",
+            "name": "machines",
+            "icon": "machines-icon",
+            "color": "black",
+            "__v": 0
+        },
+        "countInStock": 20,
+        "rating": 4,
+        "numReviews": 0,
+        "isFeatured": true,
+        "dateCreated": "2023-12-31T04:19:02.885Z",
+        "__v": 0,
+        "id": "6590ebb6b3d406038956ede2"
+    },
+    {
+        "_id": "65a8013636324b6f938fb769",
+        "name": "Leg Press Machine",
+        "description": "Leg Press Machine",
+        "longDescription": "Leg Press Machine",
+        "image": "http://localhost:3000/public/uploads/legpress.jpg-1705509174466.jpeg",
+        "images": [
+            "http://localhost:3000/public/uploads/legpress2.jpg-1705509192685.jpeg",
+            "http://localhost:3000/public/uploads/legpress.jpg-1705509192685.jpeg"
+        ],
+        "brand": "Powerlite",
+        "price": 12345,
+        "category": {
+            "_id": "65899e0f11b1c21154bb614a",
+            "name": "machines",
+            "icon": "machines-icon",
+            "color": "black",
+            "__v": 0
+        },
+        "countInStock": 12,
+        "rating": 4.5,
+        "numReviews": 5,
+        "isFeatured": false,
+        "dateCreated": "2024-01-17T16:32:54.513Z",
+        "__v": 0,
+        "id": "65a8013636324b6f938fb769"
+    }
+]
