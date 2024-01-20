@@ -1,5 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, View, Dimensions } from 'react-native';
+import ProductCard from './ProductCard';
 
 var { width } = Dimensions.get("window")
 
