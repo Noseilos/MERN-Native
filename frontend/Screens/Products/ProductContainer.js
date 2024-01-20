@@ -8,6 +8,7 @@ const data = require('../../assets/data/products.json')
 const ProductContainter = () => {
 
     const [products, setProducts] = useState([])
+    const [numColumns, setNumColumns] = useState(2);
 
     useEffect(() =>{
         setProducts(data)
@@ -15,22 +16,33 @@ const ProductContainter = () => {
         return () => {
             setProducts([]);
         }
-    },[])
+    },[]);
 
     return (
-        <View>
-            <View style={{ marginTop: 100 }}>
-            <Text>Product Container</Text>
-                <FlatList
-                    numColumns={2}
-                    horizontal
-                    data={products}
-                    renderItem={({item}) => <ProductList key={item.id} item={item}/>}
-                    keyExtractor={item => item.name}
-                />
-            </View>
+        <View style={styles.container}>
+            <Text style={styles.heading}>Product Container</Text>
+            <FlatList
+                numColumns={numColumns}
+                key={numColumns}
+                showsHorizontalScrollIndicator={false}
+                data={products}
+                renderItem={({ item }) => <ProductList key={item.id} item={item} />}
+                keyExtractor={(item) => item.name}
+            />
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+      marginTop: 50,
+    },
+    heading: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      textAlign: 'center',
+      marginBottom: 10,
+    },
+  });
 
 export default ProductContainter;

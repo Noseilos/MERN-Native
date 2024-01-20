@@ -4,7 +4,7 @@
         "name": "5lbs dumbbell",
         "description": "5lbs dumbbell",
         "longDescription": "5lbs dumbbell",
-        "image": "",
+        "image": "https://www.titan.fitness/dw/image/v2/BDBZ_PRD/on/demandware.static/-/Sites-masterCatalog_Titan/default/dw9246e87f/images/hi-res/Fitness/421005_01.jpg?sw=1001&sh=1000",
         "images": [
             "5lbs_dumbbell_url"
         ],
@@ -57,7 +57,7 @@
         "name": "pec deck machine",
         "description": "pec deck machine",
         "longDescription": "pec deck machine",
-        "image": "",
+        "image": "https://5.imimg.com/data5/AO/BF/LJ/SELLER-58855342/single-station-pec-deck-fly.jpg",
         "images": [
             "pec_deck_machine_url",
             "pec_deck_machine_url2"
@@ -138,7 +138,7 @@
         "name": "Leg Press Machine",
         "description": "Leg Press Machine",
         "longDescription": "Leg Press Machine",
-        "image": "http://localhost:3000/public/uploads/legpress.jpg-1705509174466.jpeg",
+        "image": "https://powertec.com/cdn/shop/products/legpress_noweight_black_wb_1-610596.jpg?v=1684520639&width=1080",
         "images": [
             "http://localhost:3000/public/uploads/legpress2.jpg-1705509192685.jpeg",
             "http://localhost:3000/public/uploads/legpress.jpg-1705509192685.jpeg"
