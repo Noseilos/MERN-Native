@@ -20,7 +20,6 @@ const ProductContainter = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.heading}>Product Container</Text>
             <FlatList
                 numColumns={numColumns}
                 key={numColumns}
